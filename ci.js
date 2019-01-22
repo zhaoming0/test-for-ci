@@ -1,18 +1,17 @@
 const childprocess = require('child_process');
-console.log(process.argv.slice(2))
-let argvs = process.argv.slice(2)
-console.log("-----------------------------------------------------")
-childprocess.exec('git log -1 argvs --pretty="%cE"', function (err, stdout, stderr) {
-  if (err != null) {
-    console.log("error is : " , err);
-  }else {
-    let data = JSON.parse(stdout);
-    console.log(data);
-    console.log("this is line 1111")
+let commands = 'git log -1 ' + process.argv.slice(2) + ' --pretty="%cE"'
+childprocess.exec(commands, function (err, stdout, stderr) {
+  String.prototype.endWith = function (endStr) {
+    let d = this.length - endStr.length;
+    return (d >= 0 && this.lastIndexOf(endStr) == d);
   }
-  if (stdout){
-    console.log(stdout)
-    console.log("this is line 333333")
+  if (err != null) {
+    console.log('error is : ' , err);
+  }
+  if (stdout.match('intel')) {
+    if (stdout.replace(/[\r\n]/g, '').endWith('@intel.com')) {
+      console.log("555555555555555555555555555555555555555555555555555")
+      process.exit(1);
+    }
   }
 });
-console.log("-----------------------------------------------------")
