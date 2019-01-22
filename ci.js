@@ -1,9 +1,9 @@
-const process = require('child_process');
+const childprocess = require('child_process');
 console.log("-----------------------------------------------------")
-console.log($TRAVIS_COMMIT)
-console.log("-----------------------------------------------------")
-process.exec('git log -1 $TRAVIS_COMMIT --pretty="%cE"', function (err, stdout, stderr) {
+childprocess.exec('git log -1 --pretty="%cE"', function (err, stdout, stderr) {
   if (err != null) {
     console.log("error is : " , err);
   }
 });
+console.log("-----------------------------------------------------")
+console.log(process.argv.slice(2))
