@@ -1,6 +1,8 @@
 const childprocess = require('child_process');
+console.log(process.argv.slice(2))
+let argvs = process.argv.slice(2)
 console.log("-----------------------------------------------------")
-childprocess.exec('git log -1 process.argv.slice(2) --pretty="%cE"', function (err, stdout, stderr) {
+childprocess.exec('git log -1 argvs --pretty="%cE"', function (err, stdout, stderr) {
   if (err != null) {
     console.log("error is : " , err);
   }else {
@@ -14,4 +16,3 @@ childprocess.exec('git log -1 process.argv.slice(2) --pretty="%cE"', function (e
   }
 });
 console.log("-----------------------------------------------------")
-console.log(process.argv.slice(2))
