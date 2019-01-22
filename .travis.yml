@@ -14,3 +14,4 @@ script:
   - export AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
   - git log -1 $TRAVIS_COMMIT --pretty="%cE"
   - git log -1
+  - node ci.js
