@@ -24,6 +24,7 @@ childprocess.exec(commands, function (err, stdout, stderr) {
   if (stdout.match('intel')) {
     if (!(stdout.replace(/[\r\n]/g, '').endWith('@intel.com'))) {
       console.log('Please configure the correct author of email of your git before contributing code.');
+      console.log('Submit email addr is : ', stdout);
       process.exit(1);
     }
   }
@@ -37,11 +38,11 @@ childprocess.exec(commands, function (err, stdout, stderr) {
   }
   stdout = stdout.toLowerCase();
   if (stdout.match('intel')) {
-    console.log('Please make sure commit that contains sensitive fields.');
+    console.log('Please make sure commit that contains sensitive fields. \nCommit content is : ', stdout);
     process.exit(1);
   }
   if (checkURL(stdout)) {
-    console.log('Please make sure is a sensitive network address.');
+    console.log('Please make sure is a sensitive network address. \nCommit content is : ', stdout);
     process.exit(1);
   }
 });
