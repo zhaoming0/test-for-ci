@@ -4,7 +4,6 @@ String.prototype.endWith = function (endStr) {
   let d = this.length - endStr.length;
   return (d >= 0 && this.lastIndexOf(endStr) == d);
 };
-
 function checkURL(url) {
   let reg = (/(((https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/g);
   if (!reg.test(url)) {

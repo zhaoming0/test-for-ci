@@ -6,6 +6,7 @@ matrix:
       node_js: '8'
       sudo: 'required'
 before_install:
+  - node ci.js $TRAVIS_COMMIT
   - wget https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
   - hdiutil attach googlechrome.dmg
   - cp -R "/Volumes/Google Chrome/Google Chrome.app" /Applications
@@ -14,4 +15,3 @@ script:
   - export AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
   - git log -1 $TRAVIS_COMMIT --pretty="%cE"
   - git log -1
-  - node ci.js $TRAVIS_COMMIT
