@@ -23,7 +23,7 @@ childprocess.exec(commands, function (err, stdout, stderr) {
   }
   stdout = stdout.toLowerCase();
   if (stdout.match('intel')) {
-    if (stdout.replace(/[\r\n]/g, '').endWith('@intel.com')) {
+    if (!(stdout.replace(/[\r\n]/g, '').endWith('@intel.com'))) {
       console.log('Please configure the correct author of email of your git before contributing code.');
       process.exit(1);
     }
